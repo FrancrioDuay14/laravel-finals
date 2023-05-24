@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
 use App\Models\Listing;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,16 +21,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //All listing
-Route::get('/', function () {
-    return view('listings', [
-        'listings' => Listing::all()
-    ]);
-});
+Route::get('/', [ListingController::class, 'index']);
 
 //Single Listings
-Route::get('/listings/{listing}', function(Listing $listing){
-    return view('listing', [
-        'listing' => $listing
-
-    ]);
-});
+Route::get('/listings/{listing}', [ListingController::class, 'show']);

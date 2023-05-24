@@ -1,6 +1,4 @@
-@extends('layout')
-
-@section('content')
+<x-layout>
 
     
     <a href="/" class="inline-block text-black ml-4 mb-4"
@@ -50,4 +48,4 @@
             </div>
         </x-card>
     </div>
-@endsection
+</x-layout>
