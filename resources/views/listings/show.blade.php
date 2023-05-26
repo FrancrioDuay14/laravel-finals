@@ -9,7 +9,7 @@
             <div class="flex flex-col items-center justify-center text-center">
                 <img
                     class="w-48 mr-6 mb-6"
-                    src="{{asset('images/no-image.png')}}"
+                    src="{{asset('images/laravel-icon.svg')}}"
                     alt=""
                 />
 
