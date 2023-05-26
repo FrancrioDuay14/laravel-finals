@@ -66,4 +66,16 @@ class ListingController extends Controller
         return redirect('/')->with('message', 'Listing updated successfully!');
     }
 
+     // Show Delete Form
+     public function delete(Listing $listing) {
+        return view('listings.delete', ['listing' => $listing]);
+    }
+
+    //Destroy/Delete Data
+    public function destroy(Listing $listing){
+        $listing->delete();
+        return redirect('/')->with('message', 'Listing deleted successfully');
+    }
+
+
 }

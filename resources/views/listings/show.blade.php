@@ -53,5 +53,10 @@
             <i class="fa-solid fa-pencil">Edit</i>
             </a>
          </x-card>
+         <x-card class="mt-4 p-2 flex space-x-6">  
+            <a href="/listings/{{$listing->id}}/delete">
+            <i class="fa-solid fa-trash">Delete</i>
+            </a>
+         </x-card>
     </div>
 </x-layout>
