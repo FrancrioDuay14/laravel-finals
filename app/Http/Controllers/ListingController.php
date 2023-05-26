@@ -26,7 +26,7 @@ class ListingController extends Controller
     public function create(){
         return view('listings.create');
     }
-
+    //Store-Add Data
     public function store(Request $request){
         $formFields = $request->validate([
             'title' => 'required',
@@ -40,6 +40,30 @@ class ListingController extends Controller
         
         Listing::create($formFields);
         
-        return redirect('/');
+        return redirect('/')->with('message', 'Listing created successfully!');
     }
+
+     // Show Edit Form
+     public function edit(Listing $listing) {
+        return view('listings.edit', ['listing' => $listing]);
+    }
+
+
+    //Update Data
+    public function update(Request $request, Listing $listing){
+        $formFields = $request->validate([
+            'title' => 'required',
+            'company'=> 'required',
+            'location' => 'required',
+            'website' => 'required',
+            'email' => ['required', 'email'],
+            'tags' => 'required',
+            'description' => 'required',
+        ]);
+        
+        $listing->update($formFields);
+        
+        return redirect('/')->with('message', 'Listing updated successfully!');
+    }
+
 }
